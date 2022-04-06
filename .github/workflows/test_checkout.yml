@@ -34,6 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          timenow=$(date)
+          echo "version: $timenow" > testfile.txt
       
       - name: Checkout tools repo
         uses: actions/checkout@v3
@@ -41,6 +43,9 @@ jobs:
           repository: prembhaskal/jsonformatter-pub
           path: pubfolder
           ref: main
+          
+      - name: Copy test file
+        run: cp testfile.txt pubfolder/
           
       - name: checkout directory list
         working-directory: ./pubfolder
