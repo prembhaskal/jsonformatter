@@ -48,7 +48,13 @@ jobs:
 
       - name: cat test file 
         working-directory: ./pubfolder
-        run: cat testfile.txt
+        run: |
+          echo "******* testfile *******"
+          cat testfile.txt
+          
+          echo "******* readme md *******"
+          cat README.md
+          
 
       - name: checkout directory list
         working-directory: ./pubfolder
