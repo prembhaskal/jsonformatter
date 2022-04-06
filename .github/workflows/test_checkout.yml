@@ -43,4 +43,5 @@ jobs:
           ref: main
           
       - name: checkout directory list
+        working-directory: ./pubfolder
         run: find .
