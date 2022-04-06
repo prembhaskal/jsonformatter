@@ -47,20 +47,12 @@ jobs:
       - name: Copy test file
         run: cp testfile.txt pubfolder/
 
+      - name: cat test file 
+        working-directory: ./pubfolder
+        run: cat testfile.txt
+
       - name: checkout directory list
         working-directory: ./pubfolder
         run: find .
         
- # This workflow contains a second job called "copy"
-  copy-data:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./pubfolder
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: cat test file 
-        run: cat testfile.txt
 
