@@ -47,6 +47,10 @@ jobs:
       - name: Copy test file
         run: cp testfile.txt pubfolder/
           
+      - name: cat test file 
+        working-directory: ./pubfolder
+        run: cat testfile.txt
+
       - name: checkout directory list
         working-directory: ./pubfolder
         run: find .
