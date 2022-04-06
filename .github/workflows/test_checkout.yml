@@ -41,3 +41,6 @@ jobs:
           repository: prembhaskal/jsonformatter-pub
           path: pubfolder
           ref: main
+          
+      - name: checkout directory list
+        run: find .
