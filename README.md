@@ -1,4 +1,3 @@
-### `build`
 ![npm build](https://github.com/prembhaskal/jsonformatter/actions/workflows/node.js.yml/badge.svg)
 
 # Getting Started with Create React App
