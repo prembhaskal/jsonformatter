@@ -34,10 +34,43 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          timenow=$(date)
+          echo "version: $timenow" > testfile.txt
       
       - name: Checkout tools repo
         uses: actions/checkout@v3
         with:
-          repository: prembhaskal/jsonformatter-pub
           path: pubfolder
           ref: main
+          
+      - name: Copy test file
+        run: cp testfile.txt pubfolder/
+
+      - name: cat test file 
+        working-directory: ./pubfolder
+        run: |
+          echo "******* testfile *******"
+          cat testfile.txt
+          
+          echo "******* readme md *******"
+          cat README.md
+          
+
+      - name: checkout directory list
+        working-directory: ./pubfolder
+        run: find .
+        
+      - name: Commit files
+        working-directory: ./pubfolder
+        run: |
+          git config --local user.email "prem-github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "prem-github-actions[bot]"
+          git add .
+          git commit -m "Add testfile"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          directory: ./pubfolder
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main

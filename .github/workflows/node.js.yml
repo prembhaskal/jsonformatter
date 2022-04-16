@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Build and Deploy Site
 
 on:
   push:
@@ -25,3 +25,31 @@ jobs:
       run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    
+    - name: Checkout main branch
+      uses: actions/checkout@v3
+      with:
+        path: pubfolder
+        ref: main
+          
+    - name: Copy build folder
+      run: cp -r build/* pubfolder/
+          
+    - name: checkout directory list
+      working-directory: ./pubfolder
+      run: find .
+        
+    - name: Commit files
+      working-directory: ./pubfolder
+      run: |
+        git config --local user.email "prem-github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "prem-github-actions[bot]"
+        git add .
+        git commit -m "update after successful build"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        directory: ./pubfolder
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
