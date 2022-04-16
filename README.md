@@ -1,4 +1,7 @@
-![npm build](https://github.com/prembhaskal/jsonformatter/actions/workflows/node.js.yml/badge.svg)
+![npm build](https://github.com/prembhaskal/jsonformatter/actions/workflows/node.js.yml/badge.svg) 
+
+#### `latest build`
+![latest build](https://github.com/prembhaskal/jsonformatter/actions/workflows/node.js.yml/badge.svg?event=push)
 
 # Getting Started with Create React App
 
