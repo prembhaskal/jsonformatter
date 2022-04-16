@@ -25,6 +25,9 @@ jobs:
       run: npm ci
     - run: npm run build --if-present
     - run: npm test
+
+    - name: build and deploy the site to github pages.
+      run: npm run deploy
     
     - name: Checkout main branch
       uses: actions/checkout@v3
