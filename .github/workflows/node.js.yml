@@ -28,10 +28,10 @@ jobs:
 
     - name: build and deploy the site to github pages.
       run: |
-        git config --local user.email "ghpages-github-actions[bot]@users.noreply.github.com"
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git config --local user.name "ghpages-github-actions[bot]"
         npm run deploy
-    
+        
     - name: Checkout main branch
       uses: actions/checkout@v3
       with:
