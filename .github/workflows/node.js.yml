@@ -31,7 +31,7 @@ jobs:
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git config --local user.name "ghpages-github-actions[bot]"
         git config --local user.email "ghpages-github-actions[bot]@users.noreply.github.com"
-        npm run deploy -- -u "ghpages-github-actions[bot]@users.noreply.github.com"
+        npm run deploy -- -u "ghpages-actions-bot ghpages-actions-bot@users.noreply.github.com"
         
     - name: Checkout main branch
       uses: actions/checkout@v3
