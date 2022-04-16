@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build - u \"ghpages-actions-bot ghpages-actions-bot@github.com\""
   },
   "eslintConfig": {
     "extends": [
