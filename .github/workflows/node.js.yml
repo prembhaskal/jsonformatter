@@ -1,0 +1,64 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build and Deploy Site
+
+on:
+  push:
+    branches: [ basic-react-app ]
+  pull_request:
+    branches: [ basic-react-app ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14.x'
+        cache: 'npm'
+    - name: Install depedencies
+      run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+
+    - name: build and deploy the site to github pages.
+      run: |
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git config --local user.name "ghpages-github-actions[bot]"
+        git config --local user.email "ghpages-github-actions[bot]@users.noreply.github.com"
+        npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Checkout main branch
+      uses: actions/checkout@v3
+      with:
+        path: pubfolder
+        ref: main
+          
+    - name: Copy build folder
+      run: cp -r build/* pubfolder/
+          
+    - name: checkout directory list
+      working-directory: ./pubfolder
+      run: find .
+        
+    - name: Commit files
+      working-directory: ./pubfolder
+      run: |
+        git config --local user.email "prem-github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "prem-github-actions[bot]"
+        git add .
+        git commit -m "update after successful build" || echo "-- skipping as nothing to commit -- "
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        directory: ./pubfolder
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
