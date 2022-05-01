@@ -35,30 +35,30 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: Checkout main branch
-      uses: actions/checkout@v3
-      with:
-        path: pubfolder
-        ref: main
+    # - name: Checkout main branch
+    #   uses: actions/checkout@v3
+    #   with:
+    #     path: pubfolder
+    #     ref: main
           
-    - name: Copy build folder
-      run: cp -r build/* pubfolder/
+    # - name: Copy build folder
+    #   run: cp -r build/* pubfolder/
           
-    - name: checkout directory list
-      working-directory: ./pubfolder
-      run: find .
+    # - name: checkout directory list
+    #   working-directory: ./pubfolder
+    #   run: find .
         
-    - name: Commit files
-      working-directory: ./pubfolder
-      run: |
-        git config --local user.email "prem-github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "prem-github-actions[bot]"
-        git add .
-        git commit -m "update after successful build" || echo "-- skipping as nothing to commit -- "
+    # - name: Commit files
+    #   working-directory: ./pubfolder
+    #   run: |
+    #     git config --local user.email "prem-github-actions[bot]@users.noreply.github.com"
+    #     git config --local user.name "prem-github-actions[bot]"
+    #     git add .
+    #     git commit -m "update after successful build" || echo "-- skipping as nothing to commit -- "
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        directory: ./pubfolder
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     directory: ./pubfolder
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     branch: main
