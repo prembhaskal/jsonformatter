@@ -1,4 +1,5 @@
 import React from 'react'
+import TextAreaComp from './TextAreaComp'
 
 export default function InputPanel() {
   return (
@@ -7,12 +8,11 @@ export default function InputPanel() {
         <div className="field">
           <label>Input</label>
           <div className="ui massive icon input">
-            <input type="text" placeholder="Add your JSON here" />
-            
+            <TextAreaComp />
           </div>
         </div>
 
-        
+
       </div>
     </div>
   )
