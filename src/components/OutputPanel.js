@@ -1,5 +1,5 @@
 import React from 'react'
-import TextAreaComp from './TextAreaComp'
+import TextAreaOut from './TextAreaOut'
 
 export default function OutputPanel() {
   return (
@@ -9,7 +9,7 @@ export default function OutputPanel() {
           <div className="field">
             <label>Output</label>
             <div className="ui massive icon input">
-              <TextAreaComp />
+              <TextAreaOut />
             </div>
           </div>
         </div>

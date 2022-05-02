@@ -1,14 +1,14 @@
 import React from 'react'
-import TextAreaComp from './TextAreaComp'
+import TextAreaIn from './TextAreaIn'
 
-export default function InputPanel() {
+export default function InputPanel(props) {
   return (
     <div className="column">
       <div className="ui form">
         <div className="field">
           <label>Input</label>
           <div className="ui massive icon input">
-            <TextAreaComp />
+            <TextAreaIn  inputValue={props.input} />
           </div>
         </div>
 
