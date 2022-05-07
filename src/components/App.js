@@ -17,7 +17,7 @@ function App() {
       <div className="ui placeholder segment">
   <div className="ui two column very relaxed stackable grid">
     <InputPanel inputValue={input}/>
-    <OutputPanel />
+    <OutputPanel text="this is sample text 12s23"/>
   </div>
   <div className="ui vertical divider">
     <button className='ui blue submit button' onClick={convert}>Convert</button>
