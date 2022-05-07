@@ -10,7 +10,7 @@ function App() {
     alert('hi');
   }
 
-  const [input, setInput] = useState("")
+  const [input] = useState("")
   return (
     <>
       <Header></Header>
