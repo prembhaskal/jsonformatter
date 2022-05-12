@@ -3,7 +3,7 @@ import '../App.css';
 import Header from './Header';
 import InputPanel from './InputPanel';
 import OutputPanel from './OutputPanel';
-import React, { useState } from "react";
+import React from "react";
 
 // function App() {
 export default class App extends React.Component {
