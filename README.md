@@ -21,6 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+use `env HOST=0.0.0.0 PORT=8080 npm start` to run on specific ip/port.
 
 ### `npm test`
 
@@ -91,7 +92,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ##### UI
 
-https://semantic-ui.com/kitchen-sink.html
-
+https://semantic-ui.com/kitchen-sink.html  
+This library enables CSS from declaration like 'className="ui vertical divider"'.
 
 
