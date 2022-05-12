@@ -9,7 +9,6 @@ export default class InputPanel extends React.Component {
   }
 
   handleChange(text) {
-      console.log(`InputPanel handleChange called ${text}`);
       this.props.updateInputText(text);
   }
 

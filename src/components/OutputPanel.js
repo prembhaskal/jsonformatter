@@ -1,18 +1,9 @@
 import React from 'react'
 import CopyToClip from './CopyToClip'
 import TextAreaOut from './TextAreaOut'
-import { prettifyJSONString } from './../module/jsonutil.js'
 
 export default class OutputPanel extends React.Component {
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.text !== nextProps.text
-  }
-
   render() {
-    this.prettyJSON = prettifyJSONString(this.props.text);
-    console.log('pretty JSON is :', this.prettyJSON);
-
     return (
       <div className="middle aligned column">
         <div className="column">
@@ -20,15 +11,15 @@ export default class OutputPanel extends React.Component {
             <div className="field">
               <label>Output</label>
               <div className="ui massive icon input">
-                <TextAreaOut text={this.prettyJSON} />
+                <TextAreaOut text={this.props.text} />
               </div>
               <div>
-                <CopyToClip text={this.prettyJSON} />
+                <CopyToClip text={this.props.text} />
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

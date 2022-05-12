@@ -4,6 +4,7 @@ import Header from './Header';
 import InputPanel from './InputPanel';
 import OutputPanel from './OutputPanel';
 import React from "react";
+import ConvertPanel from './ConvertPanel';
 
 // function App() {
 export default class App extends React.Component {
@@ -15,43 +16,39 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       text: "{}",
-      toConvertText: "{}"
+      prettyJSON: "{}"
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.convert = this.convert.bind(this);
+    this.updatePrettyJSON = this.updatePrettyJSON.bind(this);
   }
 
   handleChange(text) {
-    console.log(`App.js handleChange called ${text}`);
     this.setState({
       text: text
     });
   }
 
-  convert(text) {
+  updatePrettyJSON(text) {
     this.setState({
-      toConvertText: this.state.text
+      prettyJSON: text
     });
   }
 
   render() {
-    let toConvertText = this.state.toConvertText;
     return (
       <div>
         <Header></Header>
         <div className="ui placeholder segment">
           <div className="ui two column very relaxed stackable grid">
             <InputPanel inputValue={this.state.text} updateInputText={this.handleChange} />
-            <OutputPanel text={toConvertText} />
+            <OutputPanel text={this.state.prettyJSON} />
           </div>
           <div className="ui vertical divider">
-            <button className='ui blue submit button' onClick={this.convert}>Convert</button>
+            <ConvertPanel text={this.state.text} updatePrettyJSON={this.updatePrettyJSON} />
           </div>
         </div>
       </div>
     );
   }
 }
-
-// export default App;
