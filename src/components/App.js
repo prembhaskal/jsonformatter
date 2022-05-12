@@ -5,27 +5,52 @@ import InputPanel from './InputPanel';
 import OutputPanel from './OutputPanel';
 import React, { useState } from "react";
 
-function App() {
-    const convert = () => {
-    alert('hi');
+// function App() {
+export default class App extends React.Component {
+  // convert = () => {
+  //   alert('hi');
+  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "",
+      toConvertText: ""
+    } 
+
+    this.handleChange = this.handleChange.bind(this);
+    this.convert = this.convert.bind(this);
   }
 
-  const [input] = useState("")
-  return (
-    <>
-      <Header></Header>
-      <div className="ui placeholder segment">
-  <div className="ui two column very relaxed stackable grid">
-    <InputPanel inputValue={input}/>
-    <OutputPanel text='{"one": "ONE", "child1":{"two": "TWO"}}'/>
-  </div>
-  <div className="ui vertical divider">
-    <button className='ui blue submit button' onClick={convert}>Convert</button>
-  </div>
-</div>
+  handleChange(text) {
+    console.log(`App.js handleChange called ${text}`);
+    this.setState({
+      text: text
+    });
+  }
 
-    </>
-  );
+  convert(text) {
+    this.setState({
+      toConvertText: this.state.text
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Header></Header>
+        <div className="ui placeholder segment">
+          <div className="ui two column very relaxed stackable grid">
+            <InputPanel inputValue={this.state.text} updateInputText={this.handleChange} />
+            <OutputPanel text={this.state.toConvertText} />
+          </div>
+          <div className="ui vertical divider">
+            <button className='ui blue submit button' onClick={this.convert}>Convert</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+// export default App;

@@ -3,7 +3,9 @@ import React from 'react'
 export default class TextAreaOut extends React.Component {
     render() {
         return (
-            <textarea>{this.props.text}</textarea>
+            <div>
+                <textarea value={this.props.text} />
+            </div>
         );
     }
 }

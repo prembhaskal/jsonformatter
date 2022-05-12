@@ -8,7 +8,9 @@ export default class TextAreaIn extends React.Component {
     }
 
     handleChange(event) {
-        this.props.setInput({ value: event.target.value })
+        let inputText = event.target.value;
+        // this.props.setInput({ value: inputText });
+        this.props.updateInputText(inputText);
     }
 
     render() {
