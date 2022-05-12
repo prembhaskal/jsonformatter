@@ -92,7 +92,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ##### UI
 
-https://semantic-ui.com/kitchen-sink.html
-
+https://semantic-ui.com/kitchen-sink.html  
+This library enables CSS from declaration like 'className="ui vertical divider"'.
 
 

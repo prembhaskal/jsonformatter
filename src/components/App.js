@@ -16,7 +16,7 @@ export default class App extends React.Component {
     this.state = {
       text: "{}",
       toConvertText: "{}"
-    } 
+    }
 
     this.handleChange = this.handleChange.bind(this);
     this.convert = this.convert.bind(this);
