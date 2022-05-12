@@ -6,12 +6,7 @@ import OutputPanel from './OutputPanel';
 import React from "react";
 import ConvertPanel from './ConvertPanel';
 
-// function App() {
 export default class App extends React.Component {
-  // convert = () => {
-  //   alert('hi');
-  // };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +33,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Header></Header>
+        <Header>JSON formatter</Header>
         <div className="ui placeholder segment">
           <div className="ui two column very relaxed stackable grid">
             <InputPanel inputValue={this.state.text} updateInputText={this.handleChange} />

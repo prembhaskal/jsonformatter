@@ -9,7 +9,7 @@ export default class ConvertPanel extends React.Component {
 
     convertToPrettyJson() {
         let prettyJSON = prettifyJSONString(this.props.text);
-        console.log(`pretty json is ${prettyJSON}`);
+        console.debug(`pretty json is ${prettyJSON}`);
 
         this.props.updatePrettyJSON(prettyJSON)
     }
