@@ -14,8 +14,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
-      toConvertText: ""
+      text: "{}",
+      toConvertText: "{}"
     } 
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,13 +36,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    let toConvertText = this.state.toConvertText;
     return (
       <div>
         <Header></Header>
         <div className="ui placeholder segment">
           <div className="ui two column very relaxed stackable grid">
             <InputPanel inputValue={this.state.text} updateInputText={this.handleChange} />
-            <OutputPanel text={this.state.toConvertText} />
+            <OutputPanel text={toConvertText} />
           </div>
           <div className="ui vertical divider">
             <button className='ui blue submit button' onClick={this.convert}>Convert</button>

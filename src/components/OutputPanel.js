@@ -5,10 +5,14 @@ import { prettifyJSONString } from './../module/jsonutil.js'
 
 export default class OutputPanel extends React.Component {
 
-  render() {
-    let prettyJSON = prettifyJSONString(this.props.text)
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.text !== nextProps.text
+  }
 
-    console.log('pretty JSON is :', prettyJSON)
+  render() {
+    this.prettyJSON = prettifyJSONString(this.props.text);
+    console.log('pretty JSON is :', this.prettyJSON);
+
     return (
       <div className="middle aligned column">
         <div className="column">
@@ -16,10 +20,10 @@ export default class OutputPanel extends React.Component {
             <div className="field">
               <label>Output</label>
               <div className="ui massive icon input">
-                <TextAreaOut text={prettyJSON} />
+                <TextAreaOut text={this.prettyJSON} />
               </div>
               <div>
-                <CopyToClip text={prettyJSON} />
+                <CopyToClip text={this.prettyJSON} />
               </div>
             </div>
           </div>
