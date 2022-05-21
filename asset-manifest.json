@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/jsonformatter/static/css/main.073c9b0a.css",
-    "main.js": "/jsonformatter/static/js/main.951d8c33.js",
+    "main.js": "/jsonformatter/static/js/main.fd3404bf.js",
     "index.html": "/jsonformatter/index.html",
     "main.073c9b0a.css.map": "/jsonformatter/static/css/main.073c9b0a.css.map",
-    "main.951d8c33.js.map": "/jsonformatter/static/js/main.951d8c33.js.map"
+    "main.fd3404bf.js.map": "/jsonformatter/static/js/main.fd3404bf.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.951d8c33.js"
+    "static/js/main.fd3404bf.js"
   ]
 }
